@@ -1,5 +1,7 @@
 # JDBC Next Generation
 
+![travis ci](https://api.travis-ci.org/sirnewton01/jdbc-ng.svg?branch=master)
+
 ORM's (Object-Relational Mapping) tools, such as Hibernate and EclipseLink, currently
 dominate over using plain JDBC. Support for multiple database vendors and the ability to
 model database elements as Java classes make it an attractive option.
