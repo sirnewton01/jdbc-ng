@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.Properties;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -27,7 +26,7 @@ public class TestJdbcNgProxy {
     }
     
     private interface sanity1createtablestmt {
-	public boolean execute();
+	public int executeUpdate();
     }
     
     private interface sanity1createrowstmt {
@@ -53,7 +52,7 @@ public class TestJdbcNgProxy {
 	setup();
 	
 	sanity1createtablestmt s1t = JdbcNgProxy.generateProxy(conn, sanity1createtablestmt.class);
-	assertFalse(s1t.execute());
+	assertEquals(0, s1t.executeUpdate());
 	
 	sanity1createrowstmt s1c = JdbcNgProxy.generateProxy(conn, sanity1createrowstmt.class);
 	s1c.setField1(1);

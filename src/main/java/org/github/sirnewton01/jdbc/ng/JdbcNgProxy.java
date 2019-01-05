@@ -217,18 +217,6 @@ public class JdbcNgProxy {
 	}
 	
 	try {
-	    // Check the signatures of other supported methods
-	    Method execute = aInterface.getDeclaredMethod("execute");
-	    if (execute.getReturnType() != Boolean.TYPE) {
-		throw new IllegalArgumentException("Interface has an execute method that doesn't return a boolean.");
-	    }
-	} catch (NoSuchMethodException ex) {
-	    // No problem
-	} catch (SecurityException ex) {
-	    Logger.getLogger(JdbcNgProxy.class.getName()).log(Level.SEVERE, null, ex);
-	}
-	
-	try {
 	    Method executeUpdate = aInterface.getDeclaredMethod("executeUpdate");
 	    if (executeUpdate.getReturnType() != Integer.TYPE) {
 		throw new IllegalArgumentException("Interface has an executeUpdate method that doesn't return an int.");
