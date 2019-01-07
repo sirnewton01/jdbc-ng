@@ -86,7 +86,7 @@ public interface HotelInvoiceRs implements JdbcNgResultSet {
 
 ...
 
-HotelInvoiceStmt stmt = JdbcNgProxy.generateStatement(conn, HotelInvoiceStmt.class);
+HotelInvoiceStmt stmt = JdbcNg.generateStatement(conn, HotelInvoiceStmt.class);
 try (HotelInvoiceRs rs = stmt.executeQuery()) {
 	while (rs.next()) {
 		handleHotelInvoice(rs);
@@ -152,8 +152,8 @@ once the database is available to validate all of your Java interfaces. Here is 
 public void startupRoutine() {
 ...
 Connection connection = ... /* Establish a database connection */
-JdbcNgProxy.validateInterface(connection, foo.bar.baz.HotelInvoiceStmt.class);
-JdbcNgProxy.validateInterface(connection, ...);
+JdbcNg.validateInterface(connection, foo.bar.baz.HotelInvoiceStmt.class);
+JdbcNg.validateInterface(connection, ...);
 ...
 
 }

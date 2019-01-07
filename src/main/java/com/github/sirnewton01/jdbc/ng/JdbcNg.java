@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 import org.apache.commons.io.IOUtils;
 
 /**
- * JDBC-NG proxy provides proxies for getting and setting SQL query positional
+ * JDBC-NG provides proxies for getting and setting SQL query positional
  *  arguments and result sets using native Java methods.
  * 
  * The low-level JDBC has a number of drawbacks that the proxies are intended
@@ -65,7 +65,7 @@ import org.apache.commons.io.IOUtils;
  *  in early startup routines or even in build automation scripts so that any
  *  discrepancies can be caught earlier in the release cycle.
  */
-public class JdbcNgProxy {
+public class JdbcNg {
     private static final Map<Class, String> PROCESSED_INTERFACES = Collections.synchronizedMap(new HashMap());
     
     public static <T> T generateProxy(Connection dbConn, final Class<T> aInterface) throws IOException, SQLException {
@@ -218,7 +218,7 @@ public class JdbcNgProxy {
 	} catch (NoSuchMethodException ex) {
 	    // It doesn't exist, no problem
 	} catch (SecurityException ex) {
-	    Logger.getLogger(JdbcNgProxy.class.getName()).log(Level.SEVERE, null, ex);
+	    Logger.getLogger(JdbcNg.class.getName()).log(Level.SEVERE, null, ex);
 	}
 	
 	try {
@@ -229,7 +229,7 @@ public class JdbcNgProxy {
 	} catch (NoSuchMethodException ex) {
 	    // No problem
 	} catch (SecurityException ex) {
-	    Logger.getLogger(JdbcNgProxy.class.getName()).log(Level.SEVERE, null, ex);
+	    Logger.getLogger(JdbcNg.class.getName()).log(Level.SEVERE, null, ex);
 	}
     }
 
