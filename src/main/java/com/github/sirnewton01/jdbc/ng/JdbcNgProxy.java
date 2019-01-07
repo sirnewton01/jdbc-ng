@@ -1,6 +1,7 @@
-package org.github.sirnewton01.jdbc.ng;
+package com.github.sirnewton01.jdbc.ng;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.StringWriter;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -135,7 +136,11 @@ public class JdbcNgProxy {
 	    }
 	    
 	    StringWriter writer = new StringWriter();
-	    IOUtils.copy(aInterface.getClassLoader().getResourceAsStream(resourceName), writer, "UTF-8");
+	    InputStream stmtStream = aInterface.getClassLoader().getResourceAsStream(resourceName);
+	    if (stmtStream == null) {
+		throw new IllegalStateException("Unable to load prepared statement from " + resourceName);
+	    }
+	    IOUtils.copy(stmtStream, writer, "UTF-8");
 	    stmtContents = writer.toString();
 	}
 	final PreparedStatement pstmt = dbConn.prepareStatement(stmtContents);

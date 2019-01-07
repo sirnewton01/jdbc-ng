@@ -1,4 +1,4 @@
-package org.github.sirnewton01.jdbc.ng;
+package com.github.sirnewton01.jdbc.ng;
 
 import java.io.IOException;
 import java.sql.Connection;

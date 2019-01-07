@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.github.sirnewton01.jdbc.ng;
+package com.github.sirnewton01.jdbc.ng;
 
 import java.sql.SQLException;
 
